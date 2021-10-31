@@ -1,5 +1,6 @@
 plugins {
     java
+    `maven-publish`
     kotlin("jvm") version "1.5.31"
     kotlin("plugin.serialization") version "1.5.31"
 }
@@ -24,4 +25,17 @@ dependencies {
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("riot.kt") {
+            from(components["java"])
+
+            group = project.group
+            version = project.version as String
+            artifactId = project.name
+            artifact(sourcesJar)
+        }
+    }
 }
