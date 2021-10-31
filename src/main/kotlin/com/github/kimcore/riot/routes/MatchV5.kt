@@ -63,7 +63,7 @@ data class MetadataDto(
 data class InfoDto(
     val gameCreation: Long,
     val gameDuration: Long,
-    val gameEndTimestamp: Long,
+    val gameEndTimestamp: Long? = null,
     val gameId: Long,
     val gameMode: String,
     val gameName: String,
@@ -75,7 +75,7 @@ data class InfoDto(
     val platformId: String,
     val queueId: Int,
     val teams: List<MatchTeamDto>,
-    val tournamentCode: String
+    val tournamentCode: String? = null
 )
 
 @Serializable
