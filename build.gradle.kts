@@ -1,8 +1,7 @@
 plugins {
+    java
     kotlin("jvm") version "1.5.31"
     kotlin("plugin.serialization") version "1.5.31"
-    java
-    `maven-publish`
 }
 
 group = "com.github.kimcore"
